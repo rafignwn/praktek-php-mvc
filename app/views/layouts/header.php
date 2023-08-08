@@ -17,6 +17,8 @@
     <script src="<?= BASE_URL; ?>/assets/js/scripts.js" defer></script>
     <script src="<?= BASE_URL; ?>/assets/js/carousel.js" defer></script>
     <script src="<?= BASE_URL; ?>/assets/js/alert.js" defer></script>
+    <!-- menambahkan tailwind css -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <?= Flasher::getFlash(); ?>
 </head>
 
@@ -129,7 +131,7 @@
     <div class="account-menu" id="ModalAccount">
         <ul class="menu-container">
             <div class="menu-item-profile">
-            <img id="ImgMenuAccount" src="<?php echo BASE_URL; ?>/assets/images/<?php echo empty($user) ? "profile_picture.png" : $user['gambar'] ?>" alt="<?php echo empty($user) ? 'Profile Picture' : $user['nama'] ?>">
+                <img id="ImgMenuAccount" src="<?php echo BASE_URL; ?>/assets/images/<?php echo empty($user) ? "profile_picture.png" : $user['gambar'] ?>" alt="<?php echo empty($user) ? 'Profile Picture' : $user['nama'] ?>">
                 <h5 id="ProfileName" class="profile-name"><?php echo empty($user) ? 'Noname User' : $user['nama'] ?></h5>
             </div>
             <hr>
