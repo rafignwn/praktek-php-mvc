@@ -11,4 +11,9 @@ class BukuController extends Controller
     {
         return $this->view("buku/tambah");
     }
+
+    public function simpan()
+    {
+        var_dump($_POST);
+    }
 }

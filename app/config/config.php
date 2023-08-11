@@ -1,5 +1,5 @@
 <?php
-define("BASE_URL", "http://localhost/php-mvc/public");
+define("BASE_URL", "http://localhost/latihan/php-mvc/public");
 
 // debug vscode liveserver
 // define("BASE_URL", "http://localhost:3000/public");
