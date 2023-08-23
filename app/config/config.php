@@ -8,4 +8,4 @@ define("BASE_URL", "http://localhost/latihan/php-mvc/public");
 define("HOST", "localhost");
 define("USER", "root");
 define("PASSWORD", "");
-define("DATABASE", "db_prikitiw");
+define("DATABASE", "db_perpus");
