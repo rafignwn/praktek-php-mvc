@@ -1,5 +1,34 @@
 <?php include DIR_OF_APP . "/views/layouts/header.php" ?>
 
+<style>
+    .my-shadow {
+        box-shadow: 3px 3px black;
+        border: 2px solid black;
+    }
+
+    @keyframes mutermuter {
+
+        0% {
+            translate: 0px 0px;
+        }
+
+        50% {
+            translate: -50px 0px;
+        }
+
+        75% {
+            translate: 50px 0px;
+
+        }
+    }
+
+    .my-shadow:hover {
+        animation: mutermuter 400ms linear forwards;
+        box-shadow: 0px 0px black;
+        translate: 3px 3px;
+    }
+</style>
+
 <h1 class="text-red-500">Halaman Tambah Buku</h1>
 <div class="p-4">
     <h4 class="font-semibold text-2xl text-red-600">Form Tambah Buku</h4>
@@ -20,7 +49,7 @@
             <label for="inputJudul">
                 <input name="deskripsi" placeholder="Masukan deskripsi buku" type="text" class="px-4 py-1 outline-none border-2 border-sky-500 w-full mt-4 rounded-md">
             </label>
-            <button class="bg-sky-700 text-white font-semibold py-2 rounded-md text-xl uppercase">simpan</button>
+            <button class="bg-white text-black font-semibold py-2 rounded-md text-xl uppercase my-shadow">simpan</button>
         </div>
     </form>
 </div>
