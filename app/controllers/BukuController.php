@@ -13,9 +13,9 @@ class BukuController extends Controller
     {
         $this->db->query("SELECT * FROM tb_buku");
         $data = $this->db->fetchAllResult();
-        var_dump($data);
-        die();
-        return $this->view("buku/index");
+        // var_dump($data);
+        // die();
+        return $this->view("buku/index", $data);
     }
 
     public function tambah()
