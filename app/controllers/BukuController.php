@@ -25,7 +25,6 @@ class BukuController extends Controller
 
     public function simpan()
     {
-        // var_dump($_POST);
         $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi)");
 
         // bind data sebelum di eksekusi querynya
@@ -41,5 +40,6 @@ class BukuController extends Controller
         } else {
             echo "Data gagal ditambahkan!";
         }
+        $this->redirectTo("buku");
     }
 }

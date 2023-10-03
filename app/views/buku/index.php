@@ -63,17 +63,19 @@
         transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
     }
 </style>
-<div class="cards">
+<div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
-        <div class="card">
+        <div class="card min-w-[190px]">
             <p class="heading">
                 Popular this month
             </p>
-            <p>
-                Powered By
+            <p class="text-white">
+                <?= $buku['judul'] ?>
             </p>
             <p>Uiverse
             </p>
         </div>
     <?php endforeach; ?>
 </div>
+
+<?php include DIR_OF_APP . "/views/layouts/footer.php" ?>
