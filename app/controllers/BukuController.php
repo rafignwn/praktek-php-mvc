@@ -25,6 +25,13 @@ class BukuController extends Controller
 
     public function simpan()
     {
+        var_dump($_FILES['sampul']);
+        if ($_FILES['sampul']) {
+            $gambar = (object)$_FILES['sampul'];
+            $extensi = strtolower(pathinfo($gambar->name, PATHINFO_EXTENSION));
+            $namaSampul = uniqid("sampul_") . "." . $extensi;
+        }
+        die();
         $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi)");
 
         // bind data sebelum di eksekusi querynya
