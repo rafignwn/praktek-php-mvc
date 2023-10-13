@@ -39,13 +39,13 @@
     }
 </style>
 
-<h1 class="text-red-500">Halaman Tambah Buku</h1>
-<div class="p-4">
-    <h4 class="font-semibold text-2xl text-red-600">Form Tambah Buku</h4>
+
+<div class="p-4 flex items-center flex-col">
+    <h4 class="font-semibold text-2xl text-black mb-8">Form Tambah Buku</h4>
     <form class="flex" action="<?= BASE_URL . '/buku/simpan' ?>" method="post" enctype="multipart/form-data">
-        <div class="flex flex-col gap-3 w-1/3">
+        <div class="flex flex-col gap-3">
             <label for="inputJudul">
-                <input name="judul" required placeholder="Masukan Judul" type="text" class="px-4 py-1 outline-none border-2 border-gray-500 w-full mt-4 rounded-md">
+                <input name="judul" required placeholder="Masukan Judul" type="text" class="px-4 py-1 outline-none border-2 border-gray-500 w-full rounded-md w-96">
             </label>
             <label for="inputJudul">
                 <input name="penulis" placeholder="Masukan penulis buku" type="text" class="px-4 py-1 outline-none border-2 border-gray-500 w-full mt-4 rounded-md">
@@ -59,11 +59,13 @@
             <label for="inputJudul">
                 <input name="deskripsi" placeholder="Masukan deskripsi buku" type="text" class="px-4 py-1 outline-none border-2 border-gray-500 w-full mt-4 rounded-md">
             </label>
-            <label for="inputSampul">
-                <input name="sampul" id="inputSampul" placeholder="Masukan deskripsi buku" type="file" class="px-4 py-1 outline-none border-2 border-gray-500 w-full mt-4 rounded-md" accept="image/jpeg,image/png">
+            <label for="inputSampul" class="flex w-96 gap-3">
+                <img class="w-20" src="<?= BASE_URL . '/assets/images/photo.png' ?>" alt="">
+                <span>Pilih Sampul Buku</span>
+                <input name="sampul" id="inputSampul" placeholder="Masukan deskripsi buku" type="file" class="px-4 py-1 outline-none border-2 border-gray-500 w-full mt-4 rounded-md hidden" accept="image/jpeg,image/png">
             </label>
 
-            <button class="bg-white text-black font-semibold py-2 rounded-md text-xl uppercase my-shadow">simpan</button>
+            <button class="bg-white text-black font-semibold py-2 rounded-md text-xl uppercase my-shadow mt-5">simpan</button>
         </div>
         <img src="<?= BASE_URL . '/assets/images/profile_picture.png' ?>" id="previewSampul" alt="gambar sampul">
     </form>

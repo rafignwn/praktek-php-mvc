@@ -64,7 +64,7 @@
     }
 </style>
 <div class="my-4 px-20">
-    <a class="inline-block px-4 py-2 bg-red-200 rounded-md text-red-500" href="<?= BASE_URL . '/buku/tambah' ?>">Tambah Buku</a>
+    <a class="inline-block px-4 py-2 bg-red-200 rounded-md text-red-500 hover:bg-green-200 hover:text-green-700" href="<?= BASE_URL . '/buku/tambah' ?>">Tambah Buku</a>
 </div>
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
