@@ -25,28 +25,31 @@ class BukuController extends Controller
 
     public function simpan()
     {
-        var_dump($_FILES['sampul']);
         if ($_FILES['sampul']) {
             $gambar = (object)$_FILES['sampul'];
             $extensi = strtolower(pathinfo($gambar->name, PATHINFO_EXTENSION));
             $namaSampul = uniqid("sampul_") . "." . $extensi;
-        }
-        die();
-        $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi)");
+            $isMoved = move_uploaded_file($gambar->tmp_name, DIR_OF_APP . "\..\public\assets\sampul\\" . $namaSampul);
+            if ($isMoved) {
+                $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi, sampul) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi, :ori_sampul)");
 
-        // bind data sebelum di eksekusi querynya
-        $this->db->bind("ori_id", uniqid("buku_"));
-        $this->db->bind("ori_judul", $_POST['judul']);
-        $this->db->bind("ori_pengarang", $_POST['penulis']);
-        $this->db->bind("ori_penerbit", $_POST['penerbit']);
-        $this->db->bind("ori_jumlah", (int)$_POST['jumlah']);
-        $this->db->bind("ori_deskripsi", $_POST['deskripsi']);
+                // bind data sebelum di eksekusi querynya
+                $this->db->bind("ori_id", uniqid("buku_"));
+                $this->db->bind("ori_judul", $_POST['judul']);
+                $this->db->bind("ori_pengarang", $_POST['penulis']);
+                $this->db->bind("ori_penerbit", $_POST['penerbit']);
+                $this->db->bind("ori_jumlah", (int)$_POST['jumlah']);
+                $this->db->bind("ori_deskripsi", $_POST['deskripsi']);
+                $this->db->bind("ori_sampul", $namaSampul);
 
-        if ($this->db->execute()) {
-            echo "Data berhasil ditambahkan";
-        } else {
-            echo "Data gagal ditambahkan!";
+                if ($this->db->execute()) {
+                    echo "Data berhasil ditambahkan";
+                } else {
+                    echo "Data gagal ditambahkan!";
+                }
+            }
         }
+
         $this->redirectTo("buku");
     }
 }

@@ -63,6 +63,9 @@
         transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
     }
 </style>
+<div class="my-4 px-20">
+    <a class="inline-block px-4 py-2 bg-red-200 rounded-md text-red-500" href="<?= BASE_URL . '/buku/tambah' ?>">Tambah Buku</a>
+</div>
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
         <div class="card min-w-[190px]">
