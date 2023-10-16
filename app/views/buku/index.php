@@ -69,9 +69,6 @@
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
         <div class="card min-w-[190px]">
-            <p class="heading">
-                Popular this month
-            </p>
             <p class="text-white">
                 <?= $buku['judul'] ?>
             </p>

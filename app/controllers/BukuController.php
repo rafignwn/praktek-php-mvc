@@ -52,4 +52,9 @@ class BukuController extends Controller
 
         $this->redirectTo("buku");
     }
+
+    public function edit()
+    {
+        return $this->view("buku/edit");
+    }
 }
