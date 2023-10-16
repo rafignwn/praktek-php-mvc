@@ -25,7 +25,7 @@ class BukuController extends Controller
 
     public function simpan()
     {
-        if ($_FILES['sampul']) {
+        if ($_FILES['sampul']['error'] == 0) {
             $gambar = (object)$_FILES['sampul'];
             $extensi = strtolower(pathinfo($gambar->name, PATHINFO_EXTENSION));
             $namaSampul = uniqid("sampul_") . "." . $extensi;
@@ -47,6 +47,24 @@ class BukuController extends Controller
                 } else {
                     echo "Data gagal ditambahkan!";
                 }
+            }
+        } else {
+            // echo $_POST['judul'];
+            // die();
+            $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi)");
+
+            // bind data sebelum di eksekusi querynya
+            $this->db->bind("ori_id", uniqid("buku_"));
+            $this->db->bind("ori_judul", $_POST['judul']);
+            $this->db->bind("ori_pengarang", $_POST['penulis']);
+            $this->db->bind("ori_penerbit", $_POST['penerbit']);
+            $this->db->bind("ori_jumlah", (int)$_POST['jumlah']);
+            $this->db->bind("ori_deskripsi", $_POST['deskripsi']);
+
+            if ($this->db->execute()) {
+                echo "Data berhasil ditambahkan";
+            } else {
+                echo "Data gagal ditambahkan!";
             }
         }
 
