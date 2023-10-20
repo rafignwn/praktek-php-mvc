@@ -68,7 +68,7 @@
 </div>
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
-        <div class="card min-w-[190px]">
+        <div data-id="<?= $buku['id']; ?>" class="card min-w-[190px]">
             <p class="text-white">
                 <?= $buku['judul'] ?>
             </p>
@@ -77,5 +77,9 @@
         </div>
     <?php endforeach; ?>
 </div>
+
+<script>
+    console.log(document.dataset)
+</script>
 
 <?php include DIR_OF_APP . "/views/layouts/footer.php" ?>

@@ -49,8 +49,6 @@ class BukuController extends Controller
                 }
             }
         } else {
-            // echo $_POST['judul'];
-            // die();
             $this->db->query("INSERT INTO tb_buku (id, judul, pengarang, penerbit, jumlah, deskripsi) VALUES (:ori_id, :ori_judul, :ori_pengarang, :ori_penerbit, :ori_jumlah, :ori_deskripsi)");
 
             // bind data sebelum di eksekusi querynya
