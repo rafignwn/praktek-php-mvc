@@ -73,4 +73,19 @@ class BukuController extends Controller
     {
         return $this->view("buku/edit");
     }
+
+    public function detail($idBuku)
+    {
+        $this->db->query("SELECT * FROM tb_buku WHERE id = '$idBuku'");
+        $hasil = $this->db->single();
+        var_dump($hasil);
+    }
+
+    // public function detail($idBuku)
+    // {
+    //     $this->db->query("SELECT * FROM tb_buku WHERE id = '$idBuku'");
+    //     $result = $this->db->single();
+
+    //     return $this->view("buku/detail", $result);
+    // }
 }

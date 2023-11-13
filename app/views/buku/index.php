@@ -68,7 +68,7 @@
 </div>
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
-        <div data-id="<?= $buku['id']; ?>" class="card min-w-[190px]">
+        <div data-idbuku="<?= $buku['id'] ?>" class="card min-w-[190px]">
             <p class="text-white">
                 <?= $buku['judul'] ?>
             </p>
@@ -79,7 +79,11 @@
 </div>
 
 <script>
-    console.log(document.dataset)
+    document.querySelectorAll("div[data-idbuku]").forEach(function(buku) {
+        buku.addEventListener("click", function(e) {
+            window.location.href = "<?= BASE_URL ?>/buku/detail/" + e.target.dataset.idbuku;
+        })
+    })
 </script>
 
 <?php include DIR_OF_APP . "/views/layouts/footer.php" ?>
