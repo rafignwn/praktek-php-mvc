@@ -68,13 +68,15 @@
 </div>
 <div class="flex gap-10 flex-wrap justify-center">
     <?php foreach ($data as $buku) : ?>
-        <div data-idbuku="<?= $buku['id'] ?>" class="card min-w-[190px]">
-            <p class="text-white">
-                <?= $buku['judul'] ?>
-            </p>
-            <p>Uiverse
-            </p>
-        </div>
+        <a href="<?= BASE_URL ?>/buku/detail/<?= $buku['id'] ?>">
+            <div class="card min-w-[190px]">
+                <p class="text-white">
+                    <?= $buku['judul'] ?>
+                </p>
+                <p>Uiverse
+                </p>
+            </div>
+        </a>
     <?php endforeach; ?>
 </div>
 
